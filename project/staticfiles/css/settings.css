@@ -1,0 +1,58 @@
+
+
+.top-header h2{
+    font-weight: 500;
+    margin-bottom: 6px;
+ }
+ 
+ .top-text{
+     color: gray;
+     margin-bottom: 30px;
+ }
+ 
+ .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+ }
+
+ .card{
+     border: 1px solid red;
+     border-radius: 5px;
+     padding: 25px;
+     margin-bottom: 10px;
+     cursor: pointer;
+     width: 500px;
+     text-align: center;
+ }
+ 
+
+ .card-icon{
+   margin-bottom: 10px;
+ }
+
+ .card-title h2{
+     font-weight: 500;
+     margin-bottom: 10px;
+     font-size: 14px;
+     font-weight: bold;
+  }
+ 
+  .card-text{
+     font-size: 11px;
+     margin-bottom: 20px;
+  }
+  
+  .card-btn button{
+     background-color: red;
+     padding: 7px;
+     padding-left: 40px;
+     padding-right: 40px;
+     color: white;
+     border-radius: 5px;
+     font-weight: bold;
+     font-size: 14px;
+     border: none;
+     margin-bottom: 20px;
+  }
+ 

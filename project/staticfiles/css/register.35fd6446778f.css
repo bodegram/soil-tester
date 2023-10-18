@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  :root {
+  }
+  
+  body {
+    background-color: black;
+  }
+  
+  .container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  
+.form-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+  .card {
+    border: solid 1px orange;
+    width: 50%;
+    margin: auto;
+    margin-top: 60px;
+  }
+  
+  .form-control {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  input, select {
+    width: 280px;
+    padding: 12px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+  }
+
+  button {
+    width: 100%;
+    background-color: black;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .card-header {
+    text-align: center;
+    padding-bottom: 15px;
+    background-color: black;
+    color: white;
+    padding-top: 15px;
+  }
+
+  .card-body{
+    padding: 10px;
+    background-color: orange;
+  }
+  
+
+  label{
+    font-size: small;
+    
+  }
+
+  .message{
+    background-color: white;
+    border-radius: 5px;
+    padding: 7px;
+  }
+
+  .message-text{
+    color: red;
+    font-weight: 400;
+  }
+
+
+  @media screen and (max-width:600px) {
+    .card{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .form-row{
+        display: block;
+    }
+
+    input, select{
+        width: 100%;
+        border: 1px solid;
+    }
+
+    .container {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+  }
