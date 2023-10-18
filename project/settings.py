@@ -125,7 +125,7 @@ STATICFILES_DIRS = [
     BASE_DIR/ "static"
 ]
 
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Default primary key field type
