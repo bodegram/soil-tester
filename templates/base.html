@@ -4,8 +4,182 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        text-decoration: none;
+      }
+
+      body {
+        background-color: white;
+      }
+
+      .container {
+        padding-left: 80px;
+        padding-right: 80px;
+      }
+
+      nav {
+        padding-left: 80px;
+        padding-right: 80px;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+      }
+
+      .nav-brand {
+        width: 140px;
+        color: red;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: large;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .nav-menuBtn {
+        display: none;
+      }
+
+      .nav-left {
+        display: flex;
+        gap: 10px;
+      }
+
+      .nav-link {
+        color: black;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .nav-link:hover {
+        border-bottom: 2px solid red;
+        color: red;
+      }
+
+      .nav-right {
+        display: flex;
+        gap: 10px;
+      }
+
+      .nav-btn1 {
+        background-color: red;
+        padding: 7px;
+        padding-left: 40px;
+        padding-right: 40px;
+        color: white;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .nav-btn2 {
+        background-color: ghostwhite;
+        padding: 7px;
+        padding-left: 20px;
+        padding-right: 20px;
+        color: black;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      footer {
+        padding-left: 80px;
+        padding-right: 80px;
+        display: block;
+        padding-top: 50px;
+        padding-bottom: 20px;
+        font-size: small;
+      }
+
+      .footer-top {
+        display: flex;
+        gap: 80px;
+        margin-bottom: 20px;
+      }
+
+      .footer-item-header {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .footer-item {
+        margin-bottom: 5px;
+      }
+
+      .footer-item a {
+        color: black;
+      }
+
+      @media screen and (max-width: 600px) {
+        .container {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+        nav {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+        .nav-menu {
+          display: block;
+          left: 0;
+          position: fixed;
+          background-color: white;
+          z-index: 999;
+          height: 100vh;
+          top: 0;
+          padding-top: 100px;
+          width: 50%;
+          transition: all 5ms ease-in;
+        }
+        .nav-menuBtn {
+          display: inline;
+        }
+
+        .nav-hide {
+          left: -100%;
+        }
+
+        .nav-left {
+          display: block;
+        }
+        .nav-right {
+          display: block;
+        }
+
+        .nav-btn2 {
+          padding-left: 35px;
+          padding-right: 35px;
+        }
+
+        .nav-item {
+          margin-bottom: 30px;
+        }
+        footer {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+        .footer-top {
+          display: block;
+        }
+        .footer-items {
+          margin-bottom: 30px;
+        }
+      }
+    </style>
     {% block title %} {% endblock title %}
   </head>
   <body>
@@ -34,7 +208,11 @@
           </div>
         </ul>
         <div class="nav-menuBtn">
-            <span onclick="openMenu()" class="bi bi-justify-left" style="font-size: 25px;"></span>
+          <span
+            onclick="openMenu()"
+            class="bi bi-justify-left"
+            style="font-size: 25px"
+          ></span>
         </div>
       </nav>
     </header>
@@ -75,6 +253,13 @@
       </div>
       <div>Soil Tester &copy 2023. All rights reserved</div>
     </footer>
-    <script src="{% static 'js/base.js' %}"></script>
+    <script>
+      let navMenu = document.getElementById("nav-menu");
+      navMenu.classList.add("nav-hide");
+
+      const openMenu = () => {
+        navMenu.classList.toggle("nav-hide");
+      };
+    </script>
   </body>
 </html>

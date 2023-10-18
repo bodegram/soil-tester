@@ -1,123 +1,130 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
-    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
-  </head>
-  <body>
-    <section>
-      <div class="container">
-        <div class="card">
-          <div class="card-header">
-            <h3>CREATE AN ACCOUNT TODAY!!!</h3>
-          </div>
-          <div class="card-body">
-            {% for message in messages %}
-            <div class="message">
-                <div class="message-text">{{message}}</div>
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>Create an account - Soil Tester</title>
+<style>
+  .login{
+    padding-top: 50px;
+    padding-bottom: 40px;
+
+}
+
+.card{
+    width: 40%;
+    margin: auto
+}
+
+.card-header{
+    margin-bottom: 7px;
+}
+.card-body{
+    margin-bottom: 7px;
+}
+
+form{
+    display: flex;
+    gap: 5px;   
+}
+
+.input{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.form-control{
+    padding: 20px;
+    outline: none;
+    width: 300px;
+    border: none;
+    background-color: ghostwhite;
+}
+
+.button button{
+    height: 115px;
+    outline: none;
+    border: none;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card-footer{
+    display: flex;
+    gap: 95px;
+}
+
+.card-footerOne{
+    font-size: small;
+    margin-top: 10px;
+}
+
+.card-footerTwo{
+    font-size: 10px;
+    padding: 8px;
+    background-color: rgb(197, 191, 191);
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.card-link{
+    color: black;
+}
+
+@media screen and (max-width:600px) {
+    .card{
+        width: 100%;
+        margin: 0;
+    }
+
+    .form-control{
+        width: 290px;
+    }
+
+  
+}
+</style>
+{% endblock title %} {% block content %}
+<section class="login container">
+  <div class="card">
+    <div class="card-header">
+      <h3>Register</h3>
+    </div>
+    <div class="card-body">
+      <div class="form">
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="inputs">
+            <div class="input">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                class="form-control"
+              />
             </div>
-            {% endfor %}
-            <form action="" method="post">
-              {% csrf_token %}
-              <div class="form-row">
-                <div class="form-control">
-                    <label for="fname">Firstname</label><br>
-                  <input
-                    type="text"
-                    name="fname"
-                    required
-                    value="{% if request.POST %}{{request.POST.fname}}{% endif %}"
-                    
-                    id=""
-                  />
-                </div>
-                <div class="form-control">
-                    <label for="lname">Lastname</label><br>
-                  <input
-                    type="text"
-                    name="lname"
-                    required
-                   
-                    id=""
-                    value="{% if request.POST %}{{request.POST.lname}}{% endif %}"
-                  />
-                </div>
-                <div class="form-control">
-                    <label for="email">Email</label><br>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value="{% if request.POST %}{{request.POST.email}}{% endif %}"
-                    
-                      id=""
-                      value="{% if request.POST %}{{request.POST.email}}{% endif %}"
-                    />
-                  </div>
-                  <div class="form-control">
-                    <label for="username">Username</label><br>
-                    <input
-                      type="text"
-                      name="username"
-                      required
-                     
-                      id=""
-                      value="{% if request.POST %}{{request.POST.username}}{% endif %}"
-                    />
-                  </div>
-                  <div class="form-control">
-                    <label for="gender">Gender</label><br>
-                    <select name="gender" id="">
-                        <option value="">------</option>
-                        <option value="Male" {% if request.POST.gender == 'Male'%}selected{% endif %}>Male</option>
-                        <option value="Female" {% if request.POST.gender == 'Female'%}selected{% endif %}>Female</option>
-                    </select>
-                  </div>
-                  <div class="form-control">
-                    <label for="dob">Date of Birth</label><br>
-                    <input
-                      type="date"
-                      name="dob"
-                      required
-                      value="{% if request.POST %}{{request.POST.dob}}{% endif %}"
-                     
-                      id=""
-                    />
-                  </div>
-                  <div class="form-control">
-                    <label for="password">Password</label><br>
-                    <input
-                      type="password"
-                      name="password"
-                      required
-                     
-                      id=""
-                      value="{% if request.POST %}{{request.POST.password}}{% endif %}"
-                    />
-                  </div>
-                  <div class="form-control">
-                    <label for="cpassword">Confirm Password</label><br>
-                    <input
-                      type="password"
-                      name="cpassword"
-                      required
-                      value="{% if request.POST %}{{request.POST.cpassword}}{% endif %}"
-                    
-                      id=""
-                     
-                    />
-                  </div>
-              </div>
-              <div class="form-control">
-                <button type="submit">SIGN UP</button>
-              </div>
-            </form>
+            <div class="input">
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                class="form-control"
+              />
+            </div>
           </div>
-        </div>
+          <div class="button">
+            <button type="submit">Login</button>
+          </div>
+        </form>
       </div>
-    </section>
-  </body>
-</html>
+    </div>
+    <div class="card-footer">
+      <div class="card-footerOne">
+        <a href="" class="card-link">Forgot your password?</a>
+      </div>
+      <div class="card-footerTwo">
+        <a href="" class="card-link">Don't have an account?</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
