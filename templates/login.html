@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>Login - Soil Tester</title>
+<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+{% endblock title %} {% block content %}
+<section class="login container">
+  <div class="card">
+    <div class="card-header">
+      <h3>Login</h3>
+    </div>
+    <div class="card-body">
+      <div class="form">
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="inputs">
+            <div class="input">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                class="form-control"
+              />
+            </div>
+            <div class="input">
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="button">
+            <button type="submit">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-footerOne">
+        <a href="" class="card-link">Forgot your password?</a>
+      </div>
+      <div class="card-footerTwo">
+        <a href="" class="card-link">Don't have an account?</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

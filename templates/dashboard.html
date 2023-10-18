@@ -1,0 +1,52 @@
+{% extends 'dbase.html' %} {% load static %} {% block header %}
+<title>Dashboard</title>
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+{% endblock header %} {% block content %}
+<main class="container">
+  <div class="top">
+    <div class="top-header">
+      <h2>Hello {{user.last_name}}, what would you like to do?</h2>
+    </div>
+    <div class="top-text">Select any of the options to proceed</div>
+  </div>
+  <div class="card" id="cardOne">
+    <div class="card-icon">
+      <span class="bi bi-yelp" style="font-size: 30px"></span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">
+        <h2>Create a Soil Test</h2>
+      </div>
+      <div class="card-text">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint iste quos
+        officiis dolor labore voluptates. Nam, delectus, doloremque est eum
+        corrupti non, dolore mollitia tempora dolorem cupiditate debitis
+        officiis optio.
+      </div>
+      <div class="card-btn">
+        <button>Get Started</button>
+      </div>
+    </div>
+  </div>
+  <div class="card" id="cardTwo">
+    <div class="card-icon">
+      <span class="bi bi-person-raised-hand" style="font-size: 30px"></span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">
+        <h2>All Soil Tests</h2>
+      </div>
+      <div class="card-text">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint iste quos
+        officiis dolor labore voluptates. Nam, delectus, doloremque est eum
+        corrupti non, dolore mollitia tempora dolorem cupiditate debitis
+        officiis optio.
+      </div>
+      <div class="card-btn">
+        <button>All Soil Tests</button>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock content %}

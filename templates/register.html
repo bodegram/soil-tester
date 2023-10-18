@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="card">
+          <div class="card-header">
+            <h3>CREATE AN ACCOUNT TODAY!!!</h3>
+          </div>
+          <div class="card-body">
+            {% for message in messages %}
+            <div class="message">
+                <div class="message-text">{{message}}</div>
+            </div>
+            {% endfor %}
+            <form action="" method="post">
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="form-control">
+                    <label for="fname">Firstname</label><br>
+                  <input
+                    type="text"
+                    name="fname"
+                    required
+                    value="{% if request.POST %}{{request.POST.fname}}{% endif %}"
+                    
+                    id=""
+                  />
+                </div>
+                <div class="form-control">
+                    <label for="lname">Lastname</label><br>
+                  <input
+                    type="text"
+                    name="lname"
+                    required
+                   
+                    id=""
+                    value="{% if request.POST %}{{request.POST.lname}}{% endif %}"
+                  />
+                </div>
+                <div class="form-control">
+                    <label for="email">Email</label><br>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value="{% if request.POST %}{{request.POST.email}}{% endif %}"
+                    
+                      id=""
+                      value="{% if request.POST %}{{request.POST.email}}{% endif %}"
+                    />
+                  </div>
+                  <div class="form-control">
+                    <label for="username">Username</label><br>
+                    <input
+                      type="text"
+                      name="username"
+                      required
+                     
+                      id=""
+                      value="{% if request.POST %}{{request.POST.username}}{% endif %}"
+                    />
+                  </div>
+                  <div class="form-control">
+                    <label for="gender">Gender</label><br>
+                    <select name="gender" id="">
+                        <option value="">------</option>
+                        <option value="Male" {% if request.POST.gender == 'Male'%}selected{% endif %}>Male</option>
+                        <option value="Female" {% if request.POST.gender == 'Female'%}selected{% endif %}>Female</option>
+                    </select>
+                  </div>
+                  <div class="form-control">
+                    <label for="dob">Date of Birth</label><br>
+                    <input
+                      type="date"
+                      name="dob"
+                      required
+                      value="{% if request.POST %}{{request.POST.dob}}{% endif %}"
+                     
+                      id=""
+                    />
+                  </div>
+                  <div class="form-control">
+                    <label for="password">Password</label><br>
+                    <input
+                      type="password"
+                      name="password"
+                      required
+                     
+                      id=""
+                      value="{% if request.POST %}{{request.POST.password}}{% endif %}"
+                    />
+                  </div>
+                  <div class="form-control">
+                    <label for="cpassword">Confirm Password</label><br>
+                    <input
+                      type="password"
+                      name="cpassword"
+                      required
+                      value="{% if request.POST %}{{request.POST.cpassword}}{% endif %}"
+                    
+                      id=""
+                     
+                    />
+                  </div>
+              </div>
+              <div class="form-control">
+                <button type="submit">SIGN UP</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

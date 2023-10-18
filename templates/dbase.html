@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/dashbase.css' %}" />
+    {% block header %} {% endblock header %}
+  </head>
+  <body>
+    <div class="sidebar" id="sidebar">
+      <ul class="sidebar-items">
+        <li class="sidebar-item">
+          <a href="" class="sidebar-link sidebar-brand">SOIL TESTER</a>
+        </li>
+        <li class="sidebar-item">
+          <a href="{% url 'dashboard' %}" class="sidebar-link">
+            <i class="bi bi-house-door-fill" style="color: white"></i>
+            Home</a
+          >
+        </li>
+        <li class="sidebar-item">
+          <a href="" class="sidebar-link">
+            <i class="bi bi-reception-4" style="color: white"></i> Tests</a
+          >
+        </li>
+        <li class="sidebar-item">
+          <a href="" class="sidebar-link">
+            <i class="bi bi-graph-up" style="color: white"></i> Analytics</a
+          >
+        </li>
+        <li class="sidebar-item">
+          <a href="{% url 'settings' %}" class="sidebar-link">
+            <i class="bi bi-gear-fill" style="color: white"></i>
+            Settings</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="navbar">
+        <div class="nav-item">
+          <div>
+            <h3>Dashboard</h3>
+          </div>
+          <div class="date">{% now 'M d, Y' %}</div>
+        </div>
+        <div class="nav-menu">
+          <div><i class="bi bi-bell-fill"></i></div>
+
+          <div>
+            <div class="user" onclick="menuCardClick()">
+               {{user.last_name}}
+              <i class="bi bi-person-circle"></i>
+            </div>
+            <div class="menu-card hide" id="menu-card">
+              <div class="menu-card-item">
+                <a href="" class="menu-card-link">
+                  <i class="bi bi-house-door" style="color: black"></i> Home
+                  <i class="bi bi-bell" style="color: white"></i
+                ></a>
+              </div>
+              <div class="menu-card-item">
+                <a href="" class="menu-card-link">
+                  <i class="bi bi-person-fill" style="color: black"></i> Edit
+                  Profile</a
+                >
+              </div>
+              <div class="menu-card-item">
+                <a href="" class="menu-card-link">
+                  <i class="bi bi-gear-fill" style="color: black"></i>
+                  Settings</a
+                >
+              </div>
+              <div class="menu-card-item">
+                <a href="{% url 'logout' %}" class="menu-card-link">
+                  <i class="bi bi-box-arrow-right" style="color: black"></i>
+                  Logout</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="nav-menuBtn">
+            <span
+              onclick="openSideMenu()"
+              class="bi bi-justify-left"
+              style="font-size: 20px"
+            ></span>
+          </div>
+        </div>
+      </div>
+      {% block content %} {% endblock content %}
+    </div>
+    <script src="{% static 'js/dashboardBase.js'%}"></script>
+  </body>
+</html>

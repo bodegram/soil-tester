@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>Soil Tester</title>
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock title %} {% block content %}
+<section class="container">
+  <div class="hero">
+    <div class="hero-one">
+      <div class="hero-one-header">
+        <h3>Monetizing Music Careers Like Never Before.</h3>
+      </div>
+      <div class="hero-one-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+        fugiat quae aliquid sunt perspiciatis, quia veritatis suscipit explicabo
+        accusantium, quas aliquam molestias officiis praesentium quisquam quis
+        ad qui mollitia neque?
+      </div>
+      <div class="hero-btn">
+        <button>Join The Movement</button>
+      </div>
+    </div>
+    <div class="hero-two">
+      <img src="{% static 'images/a.jpg' %}" class="hero-img" alt="image one" />
+    </div>
+  </div>
+</section>
+<section class="heroTwo container">
+  <div class="heroTwo-content">
+    <div class="heroTwo-one">We're launching something new</div>
+    <div class="heroTwo-two">Powered by you</div>
+    <div class="heroTwo-three">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure nihil
+      voluptatum odit voluptates adipisci, iste temporibus labore vitae dolor
+      saepe magni, alias culpa non, asperiores magnam dignissimos aliquam libero
+      distinctio.
+    </div>
+    <div class="heroTwo-four"><a href="">Learn more</a></div>
+  </div>
+  <div class="heroTwo-image">
+    <img
+      src="{% static 'images/a.jpg' %}"
+      alt="image-two"
+      class="heroTwo-img"
+    />
+  </div>
+</section>
+<section class="heroThree container">
+   <div class="heroThree-top">
+     <h3>Our mission is to accelerate the growth and maximize the success of every artist.</h3>
+   </div>
+   <div class="hero-btn">
+    <button>Get Started</button>
+  </div>
+</section>
+{% endblock content %}

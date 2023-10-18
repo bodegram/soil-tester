@@ -1,0 +1,59 @@
+{% extends 'dbase.html' %} {% load static %} {% block header %}
+<title>Settings</title>
+<link rel="stylesheet" href="{% static 'css/settings.css' %}" />
+{% endblock header %} {% block content %}
+<main class="container">
+  <div class="top">
+    <div class="top-header">
+      <h2>Settings</h2>
+    </div>
+    <div class="top-text">Select any of the options to proceed</div>
+  </div>
+  <div class="row">
+    <div class="card" id="cardOne">
+      <div class="card-icon">
+        <span class="bi bi-gear-fill" style="font-size: 30px"></span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          <h2>General Settings</h2>
+        </div>
+        <div class="card-text">Change your firstname, lastname, etc.</div>
+      </div>
+    </div>
+    <div class="card" id="cardTwo">
+      <div class="card-icon">
+        <span class="bi bi-envelope-arrow-up-fill" style="font-size: 30px"></span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          <h2>Change Email</h2>
+        </div>
+        <div class="card-text">Update your email address.</div>
+      </div>
+    </div>
+    <div class="card" id="cardOne">
+      <div class="card-icon">
+        <span class="bi bi-person-arms-up" style="font-size: 30px"></span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          <h2>Change Username</h2>
+        </div>
+        <div class="card-text">Update your username.</div>
+      </div>
+    </div>
+    <div class="card" id="cardTwo">
+      <div class="card-icon">
+        <span class="bi bi-key-fill" style="font-size: 30px"></span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          <h2>Change Password</h2>
+        </div>
+        <div class="card-text">Update your password.</div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}
