@@ -48,7 +48,7 @@ def register(request):
                 messages.error(request, 'Email already in use')
                 
             else:
-                user = CustomUser(username=username, email=email, first_name=fname, last_name=lname, gender=gender, dob=dob)
+                user = CustomUser(username=username, email=email, first_name=fname, last_name=lname)
                 user.set_password(password)
                 user.save()
                 messages.success(request, 'Account successfully created, proceed to login.')
