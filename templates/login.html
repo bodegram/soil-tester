@@ -109,6 +109,8 @@ form{
                 name="email"
                 placeholder="Email"
                 class="form-control"
+                value="{% if request.POST %}{{request.POST.email}}{% endif %}"
+                required
               />
             </div>
             <div class="input">
@@ -117,6 +119,7 @@ form{
                 type="password"
                 placeholder="Password"
                 class="form-control"
+                required
               />
             </div>
           </div>
@@ -128,10 +131,10 @@ form{
     </div>
     <div class="card-footer">
       <div class="card-footerOne">
-        <a href="" class="card-link">Forgot your password?</a>
+        <a href="{% url 'resetPassword'%}" class="card-link">Forgot your password?</a>
       </div>
       <div class="card-footerTwo">
-        <a href="" class="card-link">Don't have an account?</a>
+        <a href="{% url  'register' %}" class="card-link">Don't have an account?</a>
       </div>
     </div>
   </div>

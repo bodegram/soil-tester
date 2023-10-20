@@ -2,8 +2,8 @@
 <title>Create an account - Soil Tester</title>
 <style>
   .login{
-    padding-top: 50px;
-    padding-bottom: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 
 }
 
@@ -20,8 +20,8 @@
 }
 
 form{
-    display: flex;
-    gap: 5px;   
+    display: block;
+     
 }
 
 .input{
@@ -32,39 +32,42 @@ form{
 .form-control{
     padding: 20px;
     outline: none;
-    width: 300px;
-    border: none;
-    background-color: ghostwhite;
+    width: 500px;
+    border: 1px solid gray;
+    background-color: transparent;
+    border-radius: 5px;
 }
 
 .button button{
-    height: 115px;
+    padding: 15px;
     outline: none;
     border: none;
-    background-color: red;
+    background-color: green;
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    width: 500px;
+    margin-top: 5px;
 }
 
 .card-footer{
     display: flex;
-    gap: 95px;
+    justify-content: center;
 }
 
 .card-footerOne{
-    font-size: small;
-    margin-top: 10px;
+  font-size: 12px;
+  padding: 8px;
+  color: black;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-.card-footerTwo{
-    font-size: 10px;
-    padding: 8px;
-    background-color: rgb(197, 191, 191);
-    color: black;
-    border-radius: 5px;
-    font-weight: bold;
+.card-footerOne a{
+  text-decoration: underline;
 }
+
+
 
 .card-link{
     color: black;
@@ -77,7 +80,11 @@ form{
     }
 
     .form-control{
-        width: 290px;
+        width: 100%;
+    }
+
+    .button button{
+      width: 100%;
     }
 
   
@@ -87,7 +94,7 @@ form{
 <section class="login container">
   <div class="card">
     <div class="card-header">
-      <h3>Register</h3>
+      <h3>Create an account</h3>
     </div>
     <div class="card-body">
       <div class="form">
@@ -96,10 +103,32 @@ form{
           <div class="inputs">
             <div class="input">
               <input
+                type="text"
+                name="fname"
+                placeholder="Firstname"
+                class="form-control"
+                value="{% if request.POST %}{{request.POST.fname}}{% endif %}"
+                required
+              />
+            </div>
+            <div class="input">
+              <input
+                name="lname"
+                value="{% if request.POST %}{{request.POST.lname}}{% endif %}"
+                type="text"
+                placeholder="Lastname"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="input">
+              <input
                 type="email"
                 name="email"
                 placeholder="Email"
                 class="form-control"
+                value="{% if request.POST %}{{request.POST.email}}{% endif %}"
+                required
               />
             </div>
             <div class="input">
@@ -108,21 +137,20 @@ form{
                 type="password"
                 placeholder="Password"
                 class="form-control"
+                value="{% if request.POST %}{{request.POST.password}}{% endif %}"
+                required
               />
             </div>
           </div>
           <div class="button">
-            <button type="submit">Login</button>
+            <button type="submit">Sign up</button>
           </div>
         </form>
       </div>
     </div>
     <div class="card-footer">
       <div class="card-footerOne">
-        <a href="" class="card-link">Forgot your password?</a>
-      </div>
-      <div class="card-footerTwo">
-        <a href="" class="card-link">Don't have an account?</a>
+        <a href="{% url 'login' %}" class="card-link">Have an account?</a>
       </div>
     </div>
   </div>

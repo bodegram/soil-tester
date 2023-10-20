@@ -3,6 +3,7 @@ from django.contrib import auth
 from django.contrib import messages
 from .models import *
 from django.contrib.auth.hashers import make_password
+from random import randint
 
 # Create your views here.
 def home(request):
@@ -31,17 +32,15 @@ def login(request):
 
 def register(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
         email = request.POST.get('email')
         fname = request.POST.get('fname')
         lname = request.POST.get('lname')
         password = request.POST.get('password')
-        cpassword = request.POST.get('cpassword')
-        gender = request.POST.get('gender')
-        dob = request.POST.get('dob')
+        username = f'{fname} {randint(10, 90)}'
+       
         
         
-        if cpassword == password:
+        if  email is not None and password is not None and fname is not None and lname is not None:
             if CustomUser.objects.filter(username=username).exists():
                 messages.error(request, 'Username already in use')
                 
