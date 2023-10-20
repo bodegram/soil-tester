@@ -2,8 +2,8 @@
 <title>Login - Soil Tester</title>
 <style>
   .login{
-    padding-top: 50px;
-    padding-bottom: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 
 }
 
@@ -20,8 +20,8 @@
 }
 
 form{
-    display: flex;
-    gap: 5px;   
+    display: block;
+     
 }
 
 .input{
@@ -32,35 +32,40 @@ form{
 .form-control{
     padding: 20px;
     outline: none;
-    width: 300px;
-    border: none;
-    background-color: ghostwhite;
+    width: 500px;
+    border: 1px solid gray;
+    background-color: transparent;
+    border-radius: 5px;
 }
 
 .button button{
-    height: 115px;
+    padding: 15px;
     outline: none;
     border: none;
-    background-color: red;
+    background-color: green;
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    width: 500px;
+    margin-top: 5px;
 }
 
 .card-footer{
     display: flex;
-    gap: 95px;
+    justify-content: space-between;
 }
 
 .card-footerOne{
-    font-size: small;
-    margin-top: 10px;
+  font-size: 10px;
+  padding: 8px;
+  color: black;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .card-footerTwo{
     font-size: 10px;
     padding: 8px;
-    background-color: rgb(197, 191, 191);
     color: black;
     border-radius: 5px;
     font-weight: bold;
@@ -77,7 +82,11 @@ form{
     }
 
     .form-control{
-        width: 290px;
+        width: 100%;
+    }
+
+    .button button{
+      width: 100%;
     }
 
   

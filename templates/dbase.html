@@ -24,7 +24,7 @@
       .sidebar {
         position: fixed;
         margin: 0;
-        background-color: black;
+        background-color: green;
         height: 100vh;
         width: 17%;
         padding-top: 20px;
@@ -61,23 +61,24 @@
         font-weight: bold;
         font-size: larger;
         color: white;
-        font-family: cursive;
+        
       }
 
       .content {
         display: block;
         width: 100%;
         margin-left: 17%;
-        background-color: #f8f8ff5b;
       }
 
       .navbar {
         display: flex;
         justify-content: space-between;
-        background-color: white;
+        background-color:white;
         padding-left: 18px;
         padding-right: 18px;
         padding-top: 15px;
+        padding-bottom: 15px;
+        color: black;
       }
 
       .nav-menu {
@@ -143,6 +144,7 @@
           height: 100vh;
           z-index: 999;
           width: 50%;
+          background-color: green;
         }
 
         .content {
@@ -155,6 +157,16 @@
 
         .nav-menuBtn {
           display: inline;
+        }
+        .navbar{
+          background-color: green;
+          color: white;
+        }
+        .sidebar-link {
+          color: black;
+        }
+        .username{
+          display: none;
         }
       }
     </style>
@@ -199,12 +211,12 @@
           <div class="date">{% now 'M d, Y' %}</div>
         </div>
         <div class="nav-menu">
-          <div><i class="bi bi-bell-fill"></i></div>
+          <div><i class="bi bi-bell-fill" style="font-size: 30px"></i></div>
 
           <div>
             <div class="user" onclick="menuCardClick()">
-              {{user.last_name}}
-              <i class="bi bi-person-circle"></i>
+              <span class="username">{{user.last_name}}</span>
+              <i class="bi bi-person-circle" style="font-size: 30px"></i>
             </div>
             <div class="menu-card hide" id="menu-card">
               <div class="menu-card-item">
@@ -237,7 +249,7 @@
             <span
               onclick="openSideMenu()"
               class="bi bi-justify-left"
-              style="font-size: 20px"
+              style="font-size: 30px"
             ></span>
           </div>
         </div>

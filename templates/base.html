@@ -12,8 +12,7 @@
       * {
         box-sizing: border-box;
         margin: 0;
-        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-          sans-serif;
+        font-family: Arial;
         text-decoration: none;
       }
 
@@ -31,12 +30,14 @@
         padding-right: 80px;
         display: flex;
         justify-content: space-between;
-        padding-top: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background-color: rgb(9, 158, 9);
       }
 
       .nav-brand {
         width: 140px;
-        color: red;
+        color: white;
         font-weight: bold;
         text-transform: uppercase;
         font-size: large;
@@ -65,8 +66,8 @@
       }
 
       .nav-link:hover {
-        border-bottom: 2px solid red;
-        color: red;
+        border-bottom: 2px solid gold;
+        color: gold;
       }
 
       .nav-right {
@@ -75,7 +76,7 @@
       }
 
       .nav-btn1 {
-        background-color: red;
+        background-color: gold;
         padding: 7px;
         padding-left: 40px;
         padding-right: 40px;
@@ -103,11 +104,15 @@
         padding-top: 50px;
         padding-bottom: 20px;
         font-size: small;
+        background-image: url('https://ndlink.org/wp-content/uploads/2019/10/61160-8sbe5pbpfw.jpg');
+        background-repeat: no-repeat;
+        background-color: green;
+        
       }
 
       .footer-top {
         display: flex;
-        gap: 80px;
+        justify-content: space-between;
         margin-bottom: 20px;
       }
 
@@ -178,6 +183,9 @@
         .footer-items {
           margin-bottom: 30px;
         }
+        .footer-copyright{
+          text-align: center;
+        }
       }
     </style>
     {% block title %} {% endblock title %}
@@ -189,7 +197,7 @@
         <ul class="nav-menu" id="nav-menu">
           <div class="nav-left">
             <li class="nav-item">
-              <a href="" class="nav-link">About</a>
+              <a href="{% url 'home' %}" class="nav-link">About</a>
             </li>
             <li class="nav-item">
               <a href="" class="nav-link">Community</a>
@@ -211,7 +219,7 @@
           <span
             onclick="openMenu()"
             class="bi bi-justify-left"
-            style="font-size: 25px"
+            style="font-size: 30px"
           ></span>
         </div>
       </nav>
@@ -250,8 +258,38 @@
             <a href="">Twitter</a>
           </div>
         </div>
+        <div class="footer-items">
+          <div class="footer-item-header">Social</div>
+          <div class="footer-item">
+            <a href="">Blog</a>
+          </div>
+          <div class="footer-item">
+            <a href="">Facebook</a>
+          </div>
+          <div class="footer-item">
+            <a href="">Instagram</a>
+          </div>
+          <div class="footer-item">
+            <a href="">Twitter</a>
+          </div>
+        </div>
+        <div class="footer-items">
+          <div class="footer-item-header">Social</div>
+          <div class="footer-item">
+            <a href="">Blog</a>
+          </div>
+          <div class="footer-item">
+            <a href="">Facebook</a>
+          </div>
+          <div class="footer-item">
+            <a href="">Instagram</a>
+          </div>
+          <div class="footer-item">
+            <a href="">Twitter</a>
+          </div>
+        </div>
       </div>
-      <div>Soil Tester &copy 2023. All rights reserved</div>
+      <div class="footer-copyright">Soil Tester &copy 2023. All rights reserved</div>
     </footer>
     <script>
       let navMenu = document.getElementById("nav-menu");

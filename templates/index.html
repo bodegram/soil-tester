@@ -1,53 +1,93 @@
 {% extends 'base.html' %} {% load static %} {% block title %}
 <title>Soil Tester</title>
 <style>
-  .container{
+  .container {
     padding-left: 80px;
     padding-right: 80px;
-}
+  }
 
-.hero{
+  .intro {
+    background-image: url('https://www.gafspfund.org/sites/default/files/2023-08/Website%20Hero%20Space%20%284%29.jpg');
+    color: white;
+    text-align: center;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background-repeat: no-repeat;
+    
+  }
+
+  .intro-header {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  .intro-text {
+    font-size: small;
+    margin-bottom: 20px;
+  }
+
+  .explore-btn {
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(9, 158, 9);
+    color: white;
+  }
+
+  .contact-btn {
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: gold;
+    color: white;
+  }
+
+  .hero {
     display: flex;
-    padding-top: 60px;
+    padding-top: 70px;
     flex-wrap: nowrap;
     gap: 10px;
-    padding-bottom: 40px;
-}
+    padding-bottom: 70px;
+    background-color: goldenrod;
+  }
 
-
-
-.hero-one-header{
-    font-size: large;
+  .hero-one-header {
+    font-size: 20px;
     margin-bottom: 10px;
-}
+  }
 
-.hero-one-text{
+  .hero-one-text {
     font-size: 15px;
     margin-bottom: 10px;
-    width: 80%;
-}
+    width: 70%;
+  }
 
-.hero-img{
-    width: 400px;
-}
+ 
 
-.hero-btn button{
-    background-color: red;
+  .hero-btn button {
+    background-color: green;
     padding: 10px;
     color: white;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     font-weight: bold;
-}
+  }
 
-.hero-btn button:hover{
+  .hero-btn button:hover {
     background-color: ghostwhite;
-    color: red;
-    
-}
+    color: green;
+  }
 
-.heroTwo{
+  .heroTwo {
     display: flex;
     padding-top: 100px;
     flex-wrap: nowrap;
@@ -55,97 +95,189 @@
     background-color: black;
     color: white;
     padding-bottom: 100px;
-}
+  }
 
-.heroTwo-one{
+  .heroTwo-one {
     font-size: small;
     margin-bottom: 3px;
     font-weight: bold;
-}
+  }
 
-.heroTwo-two{
+  .heroTwo-two {
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 3px;
-}
+    color: goldenrod;
+  }
 
-
-.heroTwo-three{
+  .heroTwo-three {
     font-size: small;
     color: grey;
     width: 50%;
     margin-bottom: 3px;
     font-weight: 500;
-}
+  }
 
-
-.heroTwo-four a{
-    color: red;
+  .heroTwo-four a {
+    color: green;
     font-size: small;
     font-weight: bold;
-}
+  }
 
+  .heroTwo-img {
+    width: 600px;
+    border-bottom-left-radius: 20px;
+  }
 
-.heroTwo-img{
-    width: 400px;
-}
-
-.heroThree{
+  .heroThree {
     padding-top: 40px;
     padding-bottom: 40px;
     background-color: ghostwhite;
-}
+  }
 
-.heroThree-top{
+  .heroThree-top {
     margin-bottom: 10px;
     width: 50%;
-}
+  }
 
-@media screen and (max-width:600px) {
-    .container{
-        padding-left: 18px;
-        padding-right: 18px;
+  .about {
+    display: flex;
+    gap: 50px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .about-img img {
+    width: 550px;
+    margin-bottom: 30px;
+  }
+
+  .about-title {
+    font-size: 20px;
+    margin-bottom: 3px;
+    color: green;
+  }
+  .about-subtitle {
+    font-size: 35px;
+    margin-bottom: 15px;
+  }
+
+  .about-text {
+    font-size: small;
+    font-weight: 600;
+  }
+
+  .about-row {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    gap: 25px;
+  }
+
+  .about-col-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .about-col-text{
+    font-size: small;
+    color: gray;
+    font-weight: 600;
+  }
+
+  .about-images{
+    display: flex;
+    gap: 3px;
+    margin-top: 33px;
+    flex-wrap: wrap;
+  }
+
+  .about-image img{
+    width: 150px;
+    border-radius: 10px;
+  }
+
+ 
+
+  @media screen and (max-width: 600px) {
+    .container {
+      padding-left: 18px;
+      padding-right: 18px;
     }
-    .hero{
-        display: block;
+    .hero {
+      display: block;
     }
 
-    .hero-img{
-        width: 100%;
+    .hero-img {
+      width: 100%;
     }
 
-    .hero-one{
-        margin-bottom: 15px;
+    .hero-one {
+      margin-bottom: 15px;
     }
 
-    .heroTwo{
-        display: block;
+    .heroTwo {
+      display: block;
     }
 
-    .heroTwo-img{
-        width: 100%;
+    .heroTwo-img {
+      width: 100%;
     }
 
-    .heroTwo-three{
-        width: 100%;
+    .heroTwo-three {
+      width: 100%;
     }
 
-    .heroTwo-content{
-        margin-bottom: 15px;
+    .heroTwo-content {
+      margin-bottom: 15px;
     }
-    .heroThree-top{
-        width: 100%;
+    .heroThree-top {
+      width: 100%;
     }
 
-    .hero-one-text{
-        width: 100%;
+    .hero-one-text {
+      width: 100%;
+    }
+    .about{
+      display: block;
+    }
+
+    .about-img img {
+      width: 100%;
     }
     
-}
+    .about-row{
+      display: block;
+    }
+
+    .about-col{
+      margin-bottom: 40px;
+    }
+
+    .intro{
+      background-position: center;
+    }
+   
+  }
 </style>
 {% endblock title %} {% block content %}
-<section class="container">
-  <div class="hero">
+<section class="intro container">
+  <div class="intro-header">
+    <h3>Welcome To Freshmart</h3>
+  </div>
+  <div class="intro-text">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste animi velit et
+    <br />
+    beatae. Ad vitae cumque doloremque quam obcaecati aspernatur, explicabo,
+  </div>
+  <div class="intro-buttons">
+    <button class="explore-btn">Explore</button>
+    <button class="contact-btn">Contact</button>
+  </div>
+</section>
+<section>
+  <div class="hero container">
     <div class="hero-one">
       <div class="hero-one-header">
         <h3>Monetizing Music Careers Like Never Before.</h3>
@@ -160,8 +292,63 @@
         <button>Join The Movement</button>
       </div>
     </div>
-    <div class="hero-two">
-      <img src="{% static 'images/a.jpg' %}" class="hero-img" alt="image one" />
+    
+  </div>
+</section>
+<section class="about container">
+  <div class="about-img">
+    <img
+      src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFncmljdWx0dXJlfGVufDB8fDB8fHww"
+      alt="about-img"
+    />
+  </div>
+  <div class="about-content">
+    <div class="about-title">
+      <h5>About Us</h5>
+    </div>
+    <div class="about-subtitle">
+      <h5>We Produce Organic Food</h5>
+    </div>
+    <div class="about-text">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore
+      obcaecati voluptate debitis cupiditate adipisci dicta ex, autem suscipit,
+      sed vel modi officia ea, optio dolore. Quod, accusamus sed! Aut,
+      laudantium.
+    </div>
+    <div class="about-row">
+      <div class="about-col">
+        <div class="about-col-header">
+          <i class="bi bi-compass"  style="font-size: 25px;color: gold;"></i>
+          <h3>100% organic</h3>
+        </div>
+        <div class="about-col-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ab
+          necessitatibus cupiditate quis ipsa amet? Ipsam porro ipsum provident
+         
+        </div>
+      </div>
+      <div class="about-col">
+        <div class="about-col-header">
+          <i class="bi bi-award" style="font-size: 25px;color: gold;"></i>
+          <h3>Award Winnig</h3>
+        </div>
+        <div class="about-col-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ab
+          necessitatibus cupiditate quis ipsa amet? Ipsam porro ipsum provident
+         
+        </div>
+      </div>
+    </div>
+    <div class="about-images">
+      <div class="about-image">
+        <img src="https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638892233/EducationHub/photos/crops-growing-in-thailand.jpg" alt="">
+      </div>
+      <div class="about-image">
+        <img src="https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638891477/EducationHub/photos/rastafarian-agriculture-fair.jpg" alt="">
+      </div>
+      <div class="about-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMTh4nmYugygmjlk9mlt9aXPkmOqS_pXt81Q&usqp=CAU" alt="">
+      </div>
     </div>
   </div>
 </section>
@@ -179,17 +366,20 @@
   </div>
   <div class="heroTwo-image">
     <img
-      src="{% static 'images/a.jpg' %}"
+      src="https://i0.wp.com/unizik.edu.ng/wp-content/uploads/2017/01/Agriculture.jpg?fit=1365%2C400&ssl=1"
       alt="image-two"
       class="heroTwo-img"
     />
   </div>
 </section>
 <section class="heroThree container">
-   <div class="heroThree-top">
-     <h3>Our mission is to accelerate the growth and maximize the success of every artist.</h3>
-   </div>
-   <div class="hero-btn">
+  <div class="heroThree-top">
+    <h3>
+      Our mission is to accelerate the growth and maximize the success of every
+      farmer.
+    </h3>
+  </div>
+  <div class="hero-btn">
     <button>Get Started</button>
   </div>
 </section>
