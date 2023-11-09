@@ -1,0 +1,64 @@
+{% extends 'user/dbase.html' %} {% load static %} {% block header %}
+<title>Generate result for {{test.name}}</title>
+<style>
+  .top-header h2 {
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .top-text {
+    color: gray;
+    margin-bottom: 30px;
+  }
+
+  .top-body{
+    background-color: ghostwhite;
+    padding: 10px;
+  }
+
+  .item{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .title{
+    font-weight: bold;
+  }
+
+  .text{
+    font-size: 15px;
+  }
+
+
+
+
+
+
+  @media screen and (max-width: 600px) {
+   
+  }
+</style>
+{% endblock header %} {% block content %}
+<main class="container">
+  <div class="top">
+    <div class="top-header">
+      <h2>Generate Test Result - {{test.name}}</h2>
+    </div>
+    
+  </div>
+  <div class="top-body">
+     <div class="form">
+        <form action="" method="post">{% csrf_token %}
+            <div class="field">
+                <label for="">Report</label><br>
+                <textarea name="report" id="" style="width: 100%;outline:none" cols="30" rows="10"></textarea>
+            </div>
+            <div class="field">
+                <button type="submit" style="padding: 10px;background-color: black; color: white;border-radius: 5px;cursor: pointer;border:none">Submit</button>
+            </div>
+        </form>
+     </div>
+  </div>
+ 
+</main>
+{% endblock content %}

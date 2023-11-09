@@ -1,0 +1,120 @@
+{% extends 'dbase.html' %} {% load static %} {% block header %}
+<title>Test</title>
+<style>
+  
+
+.top-header h2{
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.top-text{
+   color: gray;
+   margin-bottom: 30px;
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card{
+   border: 1px solid green;
+   border-radius: 5px;
+   padding: 25px;
+   margin-bottom: 10px;
+   cursor: pointer;
+   width: 500px;
+   text-align: center;
+   color: black;
+}
+
+
+.card-icon{
+ margin-bottom: 10px;
+}
+
+.card-title h2{
+   font-weight: 500;
+   margin-bottom: 10px;
+   font-size: 14px;
+   font-weight: bold;
+}
+
+.card-text{
+   font-size: 11px;
+   margin-bottom: 20px;
+}
+
+.card-btn button{
+   background-color: green;
+   padding: 7px;
+   padding-left: 40px;
+   padding-right: 40px;
+   color: white;
+   border-radius: 5px;
+   font-weight: bold;
+   font-size: 14px;
+   border: none;
+   margin-bottom: 20px;
+}
+
+
+</style>
+{% endblock header %} {% block content %}
+<main class="container">
+  <div class="top">
+    <div class="top-header">
+      <h2>Create a Test</h2>
+    </div>
+    <div class="top-text">Select any of the options to proceed</div>
+  </div>
+  <div class="row">
+    <a class="card" id="cardOne" href="{% url 'createTest' %}" >
+      <div class="card-icon">
+        <span class="bi bi-gear-fill" style="font-size: 30px"></span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          <h2>Soil pH Level</h2>
+        </div>
+        <div class="card-text">check for the pH level of the soil..</div>
+      </div>
+    </a>
+    <a class="card" id="cardTwo" href="{% url 'createTest' %}">
+      <div class="card-icon">
+        <span class="bi bi-envelope-arrow-up-fill" style="font-size: 30px"></span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          <h2>Structure and Texture</h2>
+        </div>
+        <div class="card-text">Soil structure and texture.</div>
+      </div>
+    </a>
+    <a class="card" id="cardOne" href="{% url 'createTest' %}">
+      <div class="card-icon">
+        <span class="bi bi-person-arms-up" style="font-size: 30px"></span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          <h2>Pesticides and Chemical Contamination</h2>
+        </div>
+        <div class="card-text">Pesticides and chemical contamination.</div>
+      </div>
+    </a>
+    <a class="card" id="cardTwo" href="{% url 'createTest' %}">
+      <div class="card-icon">
+        <span class="bi bi-key-fill" style="font-size: 30px"></span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          <h2>Salinity</h2>
+        </div>
+        <div class="card-text">Soil salinity</div>
+      </div>
+    </a>
+  </div>
+</main>
+{% endblock content %}

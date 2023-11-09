@@ -1,0 +1,153 @@
+{% extends 'dbase.html' %} {% load static %} {% block header %}
+<title>Soil pH - Test</title>
+<style>
+  
+
+.top-header h2{
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.top-text{
+   color: gray;
+   margin-bottom: 30px;
+}
+
+.body{
+    background-color: ghostwhite;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+}
+
+.form{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    
+}
+
+label{
+    margin-bottom: 5px;
+}
+
+.form-control{
+    outline: none;
+    padding: 10px;
+    width: 500px;
+    background-color: transparent;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.btn{
+    padding: 15px;
+    border: none;
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 14px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:600px) {
+    .form-control{
+        width: 100%;
+    }
+
+    form{
+        display: block;
+    }
+}
+
+</style>
+{% endblock header %} {% block content %}
+<main class="container">
+  <div class="top">
+    <div class="top-header">
+      <h2>Soil pH Level</h2>
+    </div>
+    <div class="top-text">Test for your soil pH level</div>
+  </div>
+  <div class="body">
+    <form action="" method="post">{% csrf_token %}
+       <div class="form">
+         <div class="field">
+            <label for="">Test Options</label><br>
+            <select name="test_option" id="option" class="form-control">
+                <option value="">-----</option>
+                <option value="Remote Test">Remote Test</option>
+                <option value="Normal Test">Normal Test</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="">Soil Test</label><br>
+            <select name="type" id="" class="form-control">
+                <option value="">-----</option>
+                <option value="Soil PH Level">Soil PH Level</option>
+                <option value="Structure and Texture">Structure and Texture</option>
+                <option value="Pesticides and Chemical Contamination">Pesticides and Chemical Contamination</option>
+                <option value="Salinity">Salinity</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="">Test title</label><br>
+            <input type="text"  name="name" class="form-control">
+        </div>
+        <div class="field">
+            <label for="">Scheduled Date</label><br>
+            <input type="date" name="scheduleDate" class="form-control">
+        </div>
+        <div class="field" id="state">
+            <label for="">State</label><br>
+            <select name="state" id="" class="form-control">
+                <option value="">-----</option>
+                <option value="Ogun State">Ogun State</option>
+                <option value="Oyo State">Oyo State</option>
+                <option value="Lagos State">Lagos State</option>
+                <option value="Ondo State">Ondo State</option>
+                <option value="Ekiti State">Ekiti State</option>
+            </select>
+        </div>
+        <div class="field" id="address">
+            <label for="">Home Address</label><br>
+            <input type="text" name="home_address"  class="form-control">
+        </div>
+       </div>
+        <div class="field">
+            <button type="submit" class="btn">Submit</button>
+        </div>
+    </form>
+  </div>
+  </div>
+</main>
+<script>
+  let state = document.getElementById('state')
+  state.style.display = "none"
+
+  let address = document.getElementById('address')
+  address.style.display = "none"
+
+  let option = document.getElementById('option')
+
+  option.addEventListener('input', ()=>{
+    if(option.value === 'Remote Test'){
+        state.style.display = "inline"
+        address.style.display = "inline"
+    }
+    else{
+        address.style.display = "none"
+        state.style.display = "none"
+
+    }
+  })
+    
+  
+
+
+</script>
+{% endblock content %}

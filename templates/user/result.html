@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Result</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+       .top-header{
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 15px;
+       }
+       .top-body{
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        margin-left: 250px;
+        margin-right: 250px;
+        border-radius: 5px;
+        padding: 15px;
+       }
+       .user{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+       }
+       .test{
+        display: block;
+        margin-bottom: 10px;
+        
+       }
+
+       .test div{
+        margin-bottom: 10px;
+       }
+
+    </style>
+</head>
+<body>
+   <div class="top-header">
+    <h3>SOIL TRACKA</h3>
+    <div>Soil Test Result</div>
+   </div>
+   <div class="top-body">
+      <div class="user-top" style="font-weight: bold;border-bottom: 1px solid black;margin-bottom: 10px;padding-bottom:5px;">Personal Information</div>
+      <div class="user">
+        <div>Fullname: {{test.user.first_name}} {{test.user.last_name}}</div>
+        <div>Email Address : {{test.user.email}}</div>
+      </div>
+      <div class="user-top" style="font-weight: bold;border-bottom: 1px solid black;margin-bottom: 10px;padding-bottom:5px;">Test Information</div>
+      <div class="test">
+        <div>Test Name: {{test.name}}</div>
+        <div>Test ID : {{test.test_id}}</div>
+        <div>Test Option : {{test.option}}</div>
+        <div>Status : {{test.status}}</div>
+        <div>Date created : {{test.date_created}}</div>
+        <div>Report:</div>
+        <div>{{report}}</div>
+      </div>
+      <div>
+        <a href="" style="text-decoration: none;margin-top: 7px;">Send result to user</a>
+      </div>
+   </div>
+</body>
+</html>

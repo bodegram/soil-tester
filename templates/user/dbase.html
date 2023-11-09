@@ -178,24 +178,20 @@
     <div class="sidebar" id="sidebar">
       <ul class="sidebar-items">
         <li class="sidebar-item">
-          <a href="" class="sidebar-link sidebar-brand">SOIL TRACKA</a>
+          <a href="" class="sidebar-link sidebar-brand">ADMIN PORTAL</a>
         </li>
         <li class="sidebar-item">
-          <a href="{% url 'dashboard' %}" class="sidebar-link">
+          <a href="{% url 'user:dashboard' %}" class="sidebar-link">
             <i class="bi bi-house-door-fill" style="color: white"></i>
             Home</a
           >
         </li>
         <li class="sidebar-item">
-          <a href="{% url 'test' %}" class="sidebar-link">
+          <a href="{% url 'user:tests' %}" class="sidebar-link">
             <i class="bi bi-reception-4" style="color: white"></i> Tests</a
           >
         </li>
-        <li class="sidebar-item">
-          <a href="" class="sidebar-link">
-            <i class="bi bi-graph-up" style="color: white"></i> Analytics</a
-          >
-        </li>
+        
         <li class="sidebar-item">
           <a href="{% url 'settings' %}" class="sidebar-link">
             <i class="bi bi-gear-fill" style="color: white"></i>

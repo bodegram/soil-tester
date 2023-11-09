@@ -1,0 +1,89 @@
+{% extends 'user/dbase.html' %} {% load static %} {% block header %}
+<title>{{test.name}}</title>
+<style>
+  .top-header h2 {
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .top-text {
+    color: gray;
+    margin-bottom: 30px;
+  }
+
+  .top-body{
+    background-color: ghostwhite;
+    padding: 10px;
+  }
+
+  .item{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .title{
+    font-weight: bold;
+  }
+
+  .text{
+    font-size: 15px;
+  }
+
+
+
+
+
+
+  @media screen and (max-width: 600px) {
+   
+  }
+</style>
+{% endblock header %} {% block content %}
+<main class="container">
+  <div class="top">
+    <div class="top-header">
+      <h2>View Test - {{test.name}}</h2>
+    </div>
+    <div class="top-text">Check the status of your test</div>
+  </div>
+  <div class="top-body">
+     <div class="item">
+        <div class="title">Username</div>
+        <div class="text">{{user.username}}</div>
+    </div>
+    <div class="item">
+        <div class="title">Email Address</div>
+        <div class="text">{{user.email}}</div>
+    </div>
+    <div class="item">
+        <div class="title">Test name</div>
+        <div class="text">{{test.name}}</div>
+    </div>
+    <div class="item">
+        <div class="title">Date Created</div>
+        <div class="text">{{test.date_created}}</div>
+    </div>
+    <div class="item">
+        <div class="title">Test Type</div>
+        <div class="text">{{test.type}}</div>
+    </div>
+    <div class="item">
+        <div class="title">Status</div>
+        <div class="text">{{test.status}}</div>
+    </div>
+    <div class="item">
+        <div class="title">Location</div>
+        <div class="text">{{test.home_address}}, {{test.state}}</div>
+    </div>
+    <div class="item">
+        <div class="title">Scheduled Date</div>
+        <div class="text">{{test.scheduleDate}}</div>
+    </div>
+    <div class="item">
+        <a href="{% url 'user:generate' test.test_id  %}" style="padding: 10px;color: white; background-color: black;border-radius: 5px;">Generate result</a>
+    </div>
+   
+  </div>
+ 
+</main>
+{% endblock content %}

@@ -13,5 +13,12 @@ urlpatterns = [
     path('update-profile', views.updateProfile, name="updateProfile"),
     path('change-username', views.changeUsername, name="changeUsername"),
     path('change-email', views.changeEmail, name="change-email"),
-    path('reset-password', views.resetPassword, name="resetPassword")
+    path('reset-password', views.resetPassword, name="resetPassword"),
+    path('test', views.test, name="test"),
+    path('test/create', views.createTest, name="createTest"),
+    path('tests', views.allTests, name="allTests"),
+    path('tests/<int:id>', views.viewTest, name="viewTest"),
+    path('result/<slug:slug>', views.pdfResult, name="pdf_result"),
+    
+    
 ]

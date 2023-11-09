@@ -1,0 +1,109 @@
+{% extends 'user/dbase.html' %} {% load static %} {% block header %}
+<title>Admin Portal - Tests</title>
+<style>
+  .top-header h2 {
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .top-text {
+    color: gray;
+    margin-bottom: 30px;
+  }
+
+  .top-body{
+    background-color: ghostwhite;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .table{
+    display: block;
+  }
+  .table-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: bisque;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .table-header-text{
+    font-weight: bold;
+  }
+
+  .table-body{
+     background-color: white;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     padding-left: 10px;
+     padding-right: 10px;
+     display: block;
+  }
+
+  .table-body-text{
+    font-size: small;
+    
+  }
+
+  .table-item{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .top-body{
+        background-color: ghostwhite;
+        padding-left: 9px;
+        padding-right: 9px;
+        padding-top: 9px;
+        padding-bottom: 9px;
+      }
+      .date,.status{
+        display: none;
+      }
+  }
+</style>
+{% endblock header %} {% block content %}
+<main class="container">
+  <div class="top">
+    <div class="top-header">
+      <h2>Tests</h2>
+    </div>
+    <div class="top-text">View all tests</div>
+  </div>
+ <div class="top-body">
+   <div class="table">
+    <div class="table-header">
+        <div class="table-header-text name">TEST NAME</div>
+        <div class="table-header-text type">TEST TYPE</div>
+        <div class="table-header-text date">DATE CREATED</div>
+        <div class="table-header-text status">STATUS</div>
+        <div class="table-header-text actions">ACTIONS</div>
+    </div>
+    <div class="table-body">
+       {% if  tests %}
+       {% for test in tests%}
+       <div class="table-item">
+        <div class="table-body-text name">{{forloop.counter}}. {{test.name}}</div>
+        <div class="table-body-text type">{{test.type}}</div>
+        <div class="table-body-text date">{{test.date_created}}</div>
+        <div class="table-body-text status">{{test.status}}</div>
+        <div class="table-body-text actions"><a href="{% url 'user:test' test.test_id %}">View</a></div>
+       </div>
+       {% endfor %}
+       {% else %}
+       <div>No matching records found</div>
+       {% endif %}
+    </div>
+   </div>
+ </div>
+</main>
+{% endblock content %}

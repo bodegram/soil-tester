@@ -4,6 +4,12 @@ from django.contrib import messages
 from .models import *
 from django.contrib.auth.hashers import make_password
 from random import randint
+from django.core.paginator import Paginator
+import io
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
 
 # Create your views here.
 def home(request):
@@ -48,7 +54,7 @@ def register(request):
                 messages.error(request, 'Email already in use')
                 
             else:
-                user = CustomUser(username=username, email=email, first_name=fname, last_name=lname)
+                user = CustomUser(username=username, email=email, first_name=fname, last_name=lname, account_type='Customer')
                 user.set_password(password)
                 user.save()
                 messages.success(request, 'Account successfully created, proceed to login.')
@@ -63,10 +69,7 @@ def resetPassword(request):
     return render(request, 'resetPassword.html')
 
 def dashboard(request):
-    if request.user.last_login is None:
-        return render(request, 'welcome.html')
-    # Welcome message
-    messages.success(request, f'Welcome back {request.user.first_name}')
+   
     
     return render(request, 'dashboard.html')
 
@@ -178,5 +181,78 @@ def logout(request):
     return redirect('login')
 
 
+
+
+def test(request):
+    return render(request, 'test.html')
+
 def settings(request):
     return render(request, 'settings.html')
+
+def createTest(request):
+    if request.method == 'POST':
+        test_option = request.POST.get('test_option')
+        type = request.POST.get('type')
+        home_address = request.POST.get('home_address')
+        state = request.POST.get('state')
+        name = request.POST.get('name')
+        scheduleDate = request.POST.get('scheduleDate')
+        test_id = randint(100000, 900000)
+       
+        if Test.objects.filter(user=request.user, test_id=test_id).exists():
+            messages.error(request, 'An error occurred')
+        else:
+            query = Test(user=request.user, test_option=test_option, type=type, state=state, home_address=home_address, name=name, scheduleDate=scheduleDate, test_id=test_id)
+            query.save()
+            messages.success(request, 'Request being processed...')
+        
+    return render(request, 'soilPh.html')
+
+
+def allTests(request):
+    query = Paginator(Test.objects.filter(user=request.user).all(), 10)
+    page = request.GET.get('page')
+    tests  = query.get_page(page)
+    return render(request, 'allTests.html', {"tests": tests})
+
+
+def viewTest(request, id):
+    try:
+        test = Test.objects.get(test_id=id)
+    except:
+        return redirect('allTests')
+    return render(request, 'viewTest.html', {"test": test})
+
+
+
+def pdfResult(request, slug):
+    query = Test.objects.get(test_id=slug)
+    result = Result.objects.get(test_result=query)
+    buff = io.BytesIO()
+    c = canvas.Canvas(buff, pagesize=letter, bottomup=0)
+    textObj = c.beginText()
+    textObj.setTextOrigin(inch, inch)
+    textObj.setFont('Helvetica', 14)
+    lines = [
+        'SOIL TRACKA',
+        '',
+        'User Information',
+        f'Name: {request.user.email}',
+        '',
+        'Test Information',
+        f'Test name: {query.name}',
+        f'Test Option: {query.test_option}',
+        f'Test Type: {query.type}',
+        f'Date created: {query.date_created}',
+        f'Test Status: {query.status}',
+        f'Test Report: {result.report}',
+        
+    ]
+    for line in lines:
+        textObj.textLine(line)
+        
+    c.drawText(textObj)
+    c.showPage()
+    c.save()
+    buff.seek(0)
+    return FileResponse(buff, as_attachment=True, filename='result.pdf')

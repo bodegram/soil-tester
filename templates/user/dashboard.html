@@ -1,4 +1,4 @@
-{% extends 'dbase.html' %} {% load static %} {% block header %}
+{% extends 'user/dbase.html' %} {% load static %} {% block header %}
 <title>Dashboard</title>
 <style>
   .top-header h2 {
@@ -70,7 +70,7 @@
     </div>
     <div class="card-body">
       <div class="card-title">
-        <h2>Create a Soil Test</h2>
+        <h2>Analytics</h2>
       </div>
       <div class="card-text">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint iste quos
@@ -79,7 +79,7 @@
         officiis optio.
       </div>
       <div class="card-btn">
-        <a class="button" href="{% url 'createTest' %}">Get Started</a>
+        <a class="button" href="{% url 'createTest' %}">Continue</a>
       </div>
     </div>
   </div>
@@ -98,7 +98,7 @@
         officiis optio.
       </div>
       <div class="card-btn">
-        <a class="button" href="{% url 'allTests' %}">All Soil Tests</a>
+        <a class="button" href="{% url 'user:tests' %}">All Soil Tests</a>
       </div>
     </div>
   </div>
